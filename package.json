@@ -4,7 +4,7 @@
   "description": "Talks to informatics lab",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "vite build"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/andrewgryan/consolidated-learning/issues"
   },
-  "homepage": "https://github.com/andrewgryan/consolidated-learning#readme"
+  "homepage": "https://github.com/andrewgryan/consolidated-learning#readme",
+  "devDependencies": {
+    "vite": "^2.6.7"
+  }
 }
