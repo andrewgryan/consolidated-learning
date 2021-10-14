@@ -103,9 +103,11 @@
                 </div>
             </div>
 
-            <div class="step bg-gray-900 p-4 border-2" data-x="0" data-y="-350" data-z="0" data-rotate-x="90" data-rotate-z="-90"
-                                                                                                              data-goto-key-list="ArrowUp ArrowDown ArrowRight ArrowLeft o" data-goto-next-list="step-5 step-2 step-6 step-1 overview">
-                <div>Slide 4</div>
+            <div class="step bg-gray-900 border-2" data-x="0" data-y="-350" data-z="0" data-rotate-x="90" data-rotate-z="-90"
+                                                                                                          data-goto-key-list="ArrowUp ArrowDown ArrowRight ArrowLeft o" data-goto-next-list="step-5 step-2 step-6 step-1 overview">
+                <div class="flex flex-col h-full w-full relative">
+                    <canvas id="regl-canvas"></canvas>
+                </div>
             </div>
 
             <div class="step bg-gray-900 p-4 border-2" data-x="-350" data-y="0" data-z="0" data-rotate-y="-90" data-rotate-z="-180"
@@ -130,6 +132,35 @@
 
         <script type="module">
             import "./tailwind.css"
+
+            import drawBunny from "./live-code/lambertian-lighting/bunny.js"
+            import setupCamera from "./live-code/lambertian-lighting/camera.js"
+
+            // Import REGL dependencies
+            import wrapRegl from "regl"
+            import fit from "canvas-fit"
+
+            // Size canvas appropriately
+            const canvas = document.getElementById("regl-canvas")
+            window.addEventListener('resize', fit(canvas), false)
+            fit(canvas)
+
+            const regl = wrapRegl({ canvas })
+            const bunny = drawBunny(regl)
+
+            regl.frame(() => {
+                const eye = [10, 20, 20]
+                const target = [0, 4, 0]
+                setupCamera(regl)({ eye, target }, () => {
+                    regl.clear({
+                        color: [0.6, 0.5, 0.9, 1.0],
+                        depth: 1
+                    })
+
+                    bunny()
+                })
+            })
+
         </script>
 
     </body>
