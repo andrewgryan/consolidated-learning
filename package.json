@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/andrewgryan/consolidated-learning#readme",
   "devDependencies": {
+    "tailwind-heropatterns": "^0.0.8",
     "tailwindcss": "^2.2.16",
     "vite": "^2.6.7"
   }
