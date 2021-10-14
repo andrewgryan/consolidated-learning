@@ -2,6 +2,9 @@ import wrapRegl from "regl"
 import mat4 from "gl-mat4"
 
 
+// Perlin noise and turbulence taken from https://medium.com/neosavvy-labs/webgl-with-perlin-noise-part-1-a87b56bbc9fb
+
+
 const regl = wrapRegl()
 
 const drawQuad = regl({
@@ -89,7 +92,7 @@ const drawQuad = regl({
         },
         // Camera location and direction
         view: ({ time }) => {
-            const eye = [0, 0, 0.1 + (0.5 * Math.sin(time * 0.1) + 0.5)]
+            const eye = [0, 0, 0.1 + (0.5 * Math.sin(time * 0.2) + 0.5)]
             const target = [0, 0, 0]
             return mat4.lookAt([], eye, target, [0, 1, 0])
         },
