@@ -1,0 +1,22 @@
+{
+  "name": "glsl-imports",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gl-mat4": "^1.2.0",
+    "glsl-noise": "^0.0.0",
+    "glslify": "^7.1.1",
+    "regl": "^2.1.0",
+    "rollup-plugin-glslify": "^1.2.1",
+    "vite": "^2.6.7",
+    "vite-babel-plugin": "^0.0.2",
+    "vite-plugin-babel-import": "^2.0.5"
+  }
+}
