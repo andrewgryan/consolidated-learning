@@ -27,26 +27,32 @@
                 </div>
             </div>
 
-            <div class="step bg-hero-circuit-board" data-x="-1400" data-y="700" data-z="350" data-scale="0.1">
+            <div class="step bg-hero-circuit-board" data-x="-1900" data-y="230" data-z="350" data-scale="0.3">
                 <div class="flex flex-col h-full justify-center items-center space-y-8">
-                    <div class="text-5xl py-4 w-full text-center bg-white border-t border-b">
+                    <div class="text-4xl py-4 w-full text-center bg-white border-t border-b">
                         Things to make or do in the 3rd dimension
                     </div>
-                    <div class="font-mono bg-white font-semibold border p-4">
-                        Andy Ryan
+                </div>
+            </div>
+
+            <div class="step bg-hero-circuit-board" data-x="-1900" data-y="300" data-z="350" data-scale="0.1">
+                <div class="flex flex-col h-full justify-center items-center space-y-8">
+                    <div class="text-5xl py-4 w-full text-center bg-white border-t border-b">
+                        It's 3D all the way down
                     </div>
                 </div>
             </div>
 
-            <div class="step bg-hero-death-star-white bg-gray-900 text-white p-4" data-x="0" data-y="0" data-z="350" >
+            <div class="step bg-hero-circuit-board-white bg-gray-800 text-white" data-x="0" data-y="0" data-z="350" >
                 <div class="flex flex-col justify-center h-full">
-                    <div class="text-2xl">REGL</div>
-                    <div class="text-xl">Functional WebGL library</div>
+                    <div class="flex flex-col justify-center bg-gray-900 border-t border-b w-full py-4">
+                        <div class="pl-4 text-2xl">REGL</div>
+                        <div class="pl-4 text-xl">Functional WebGL library</div>
+                    </div>
                 </div>
             </div>
 
-            <div class="step bg-hero-hexagons-white bg-gray-800 text-white py-4" data-x="350" data-y="0" data-z="0" data-rotate-y="90"
-                                                                                                                    data-goto-key-list="ArrowUp ArrowDown ArrowRight ArrowLeft o" data-goto-next-list="step-4 step-3 step-6 step-1 overview">
+            <div class="step bg-hero-hexagons-white bg-gray-800 text-white py-4" data-x="1400" data-y="0" data-z="250" >
                 <div class="flex flex-col justify-center items-center h-full">
                     <div class="flex flex-col items-center bg-gray-800 w-full border p-4">
                         <div class="text-4xl font-thin">Shopping list</div>
@@ -91,37 +97,44 @@
                 </div>
             </div>
 
-            <div class="step bg-gray-900 text-white p-4 border-2" data-x="0" data-y="350" data-z="0" data-rotate-x="-90" data-rotate-z="90"
-                                                                                                                         data-goto-key-list="ArrowUp ArrowDown ArrowRight ArrowLeft o" data-goto-next-list="step-2 step-5 step-6 step-1 overview">
-                <div class="flex flex-row items-center space-x-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <div class="text-xl">
-                        Open a terminal
+            <div class="step bg-gray-900 text-white p-4 border-2" data-x="0" data-y="700" data-z="0" >
+                <div class="flex flex-col space-y-4">
+                    <div class="flex flex-row items-center space-x-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                <div class="text-xl">
+                    Open a terminal
+                </div>
                     </div>
+                    <pre class="p-2 rounded bg-gray-800 text-pink-500">
+> git clone git@github.com:andrewgryan/consolidated-learning.git
+> cd consolidated-learning/live-code/${example-name}
+> npm install
+> npm run dev</pre>
+
+                    <div class="flex flex-row items-center space-x-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                        </svg>
+                        <div class="text-xl">
+                            Open an editor to edit main.js
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-            <div class="step bg-gray-900 border-2" data-x="0" data-y="-350" data-z="0" data-rotate-x="90" data-rotate-z="-90"
-                                                                                                          data-goto-key-list="ArrowUp ArrowDown ArrowRight ArrowLeft o" data-goto-next-list="step-5 step-2 step-6 step-1 overview">
+            <div class="step bg-gray-900 border-2" data-x="0" data-y="-700" data-z="0">
                 <div class="flex flex-col h-full w-full relative">
                     <canvas id="regl-canvas"></canvas>
                 </div>
             </div>
 
-            <div class="step bg-gray-900 p-4 border-2" data-x="-350" data-y="0" data-z="0" data-rotate-y="-90" data-rotate-z="-180"
-                                                                                                               data-goto-key-list="ArrowUp ArrowDown ArrowRight ArrowLeft o" data-goto-next-list="step-3 step-4 step-6 step-1 overview">
-                <div>Slide 5</div>
+            <div class="step bg-gray-900 border-2" data-x="1400" data-y="-1400" data-z="0">
+                <div class="flex flex-col h-full w-full relative justify-center items-center text-white text-4xl">Let the live coding commence...</div>
             </div>
 
-            <div class="step bg-gray-900 p-4 border-2" data-x="0" data-y="0" data-z="-350" data-rotate-y="-180" data-rotate-z="-180"
-                                                                                                                data-goto-key-list="ArrowUp ArrowDown ArrowRight ArrowLeft o" data-goto-next-list="step-3 step-4 step-2 step-5 overview">
-                <div>Slide 6</div>
-            </div>
-
-            <div id="overview" class="step bg-gray-900 p-4 border-2" data-x="700" data-y="-100" data-z="1000" data-scale="1" style="pointer-events: none;">
-            </div>
         </div>
 
         <div id="impress-toolbar"></div>
