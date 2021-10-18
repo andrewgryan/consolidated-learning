@@ -9,7 +9,7 @@
         
       <script type="module" crossorigin src="/consolidated-learning/assets/index.a26b097b.js"></script>
       <link rel="modulepreload" href="/consolidated-learning/assets/vendor.e03dce98.js">
-      <link rel="stylesheet" href="/consolidated-learning/assets/index.adebb336.css">
+      <link rel="stylesheet" href="/consolidated-learning/assets/index.5e2ca935.css">
     </head>
 
     <body class="impress-not-supported bg-gray-100">
@@ -38,7 +38,7 @@
                 </div>
             </div>
 
-            <div class="step bg-hero-circuit-board" data-x="-1900" data-y="300" data-z="350" data-scale="0.1">
+            <div class="step bg-hero-circuit-board" data-x="-1900" data-y="300" data-z="350" data-scale="0.05">
                 <div class="flex flex-col h-full justify-center items-center space-y-8">
                     <div class="text-5xl py-4 w-full text-center bg-white border-t border-b">
                         It's 3D all the way down
@@ -46,18 +46,18 @@
                 </div>
             </div>
 
-            <div class="step bg-hero-circuit-board-white bg-gray-800 text-white" data-x="0" data-y="0" data-z="350" >
+            <div class="step bg-hero-circuit-board-white bg-blue-500 text-white" data-x="0" data-y="0" data-z="350" >
                 <div class="flex flex-col justify-center h-full">
-                    <div class="flex flex-col justify-center bg-gray-900 border-t border-b w-full py-4">
+                    <div class="flex flex-col justify-center bg-blue-900 border-t border-b w-full py-4">
                         <div class="pl-4 text-2xl">REGL</div>
                         <div class="pl-4 text-xl">Functional WebGL library</div>
                     </div>
                 </div>
             </div>
 
-            <div class="step bg-hero-hexagons-white bg-gray-800 text-white py-4" data-x="1400" data-y="0" data-z="250" >
+            <div class="step bg-hero-hexagons-white bg-blue-500 text-white py-4" data-x="1400" data-y="0" data-z="250" >
                 <div class="flex flex-col justify-center items-center h-full">
-                    <div class="flex flex-col items-center bg-gray-800 w-full border p-4">
+                    <div class="flex flex-col items-center bg-blue-900 w-full border p-4">
                         <div class="text-4xl font-thin">Shopping list</div>
                         <div class="flex flex-row items-center space-x-4">
 
@@ -86,7 +86,7 @@
                                 </linearGradient>
                                 </defs>
                             </svg>
-                            <li>Vite development server</li>
+                            <li>Vite development server, e.g. localhost:3000/</li>
                         </div>
                         <div class="flex flex-row items-center space-x-4">
                             <div class="h-12 w-12 flex flex-row justify-center text-2xl">
@@ -100,30 +100,129 @@
                 </div>
             </div>
 
-            <div class="step bg-gray-900 text-white p-4 border-2" data-x="0" data-y="700" data-z="0" >
-                <div class="flex flex-col space-y-4">
-                    <div class="flex flex-row items-center space-x-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                <div class="text-xl">
-                    Open a terminal
-                </div>
+            <div class="step bg-blue-500 text-white" data-x="1400" data-y="1050" data-z="0" data-rotate-z="90">
+                <div class="flex flex-col h-full">
+                    <div class="px-2 py-4 text-3xl font-thin">
+                        WebGL - OpenGL but on the web
                     </div>
-                    <pre class="p-2 rounded bg-gray-800 text-pink-500">
-> git clone git@github.com:andrewgryan/consolidated-learning.git
-> cd consolidated-learning/live-code/${example-name}
-> npm install
-> npm run dev</pre>
+                    <div class="p-2">
+                        Why do libraries like three.js and ReGL exist?
+                    </div>
+                    <pre class="text-xs bg-blue-200 text-gray-900 overflow-y-scroll">
 
-                    <div class="flex flex-row items-center space-x-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                        </svg>
-                        <div class="text-xl">
-                            Open an editor to edit main.js
-                        </div>
+// WebGL API "Hello, World!"
+
+var canvas = document.getElementById('my_Canvas');
+gl = canvas.getContext('webgl');
+
+// Geometry
+var vertices = [ -0.5,0.5,0.0, -0.5,-0.5,0.0, 0.5,-0.5,0.0 ];
+indices = [0,1,2];
+
+var vertex_buffer = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, vertex_buffer);
+gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
+gl.bindBuffer(gl.ARRAY_BUFFER, null);
+
+var Index_Buffer = gl.createBuffer();
+gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, Index_Buffer);
+gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW);
+gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null);
+
+// Vertex shader
+var vertCode =
+'attribute vec3 coordinates;' +
+
+'void main(void) {' +
+' gl_Position = vec4(coordinates, 1.0);' +
+'}';
+
+var vertShader = gl.createShader(gl.VERTEX_SHADER);
+gl.shaderSource(vertShader, vertCode);
+gl.compileShader(vertShader);
+
+// Fragment shader
+var fragCode =
+'void main(void) {' +
+' gl_FragColor = vec4(0.0, 0.0, 0.0, 0.1);' +
+'}';
+
+var fragShader = gl.createShader(gl.FRAGMENT_SHADER);
+gl.shaderSource(fragShader, fragCode); 
+gl.compileShader(fragShader);
+
+var shaderProgram = gl.createProgram();
+gl.attachShader(shaderProgram, vertShader);
+gl.attachShader(shaderProgram, fragShader);
+gl.linkProgram(shaderProgram);
+gl.useProgram(shaderProgram);
+
+/*======= Associating shaders to buffer objects =======*/
+
+gl.bindBuffer(gl.ARRAY_BUFFER, vertex_buffer);
+gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, Index_Buffer);
+var coord = gl.getAttribLocation(shaderProgram, "coordinates");
+
+gl.vertexAttribPointer(coord, 3, gl.FLOAT, false, 0, 0); 
+gl.enableVertexAttribArray(coord);
+
+/*=========Drawing the triangle===========*/
+
+gl.clearColor(0.5, 0.5, 0.5, 0.9);
+gl.enable(gl.DEPTH_TEST);
+gl.clear(gl.COLOR_BUFFER_BIT);
+gl.viewport(0,0,canvas.width,canvas.height);
+gl.drawElements(gl.TRIANGLES, indices.length, gl.UNSIGNED_SHORT,0);
+                    </pre>
+                </div>
+            </div>
+
+            <div class="step bg-blue-500 text-white p-4 border-2" data-x="0" data-y="700" data-z="0" >
+                <div class="flex flex-col h-full justify-between space-y-4">
+                    <div class="text-3xl">
+                        Consolidated learning workflow
                     </div>
+
+                <div class="flex flex-row items-center space-x-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <div class="text-xl">
+                        Open a terminal
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <div class="font-mono pl-2">Get a copy of the code</div>
+                    <pre class="p-2 rounded bg-gray-800 text-white">
+git clone git@github.com:andrewgryan/consolidated-learning.git</pre>
+                </div>
+
+                <div class="flex flex-col">
+                    <div class="font-mono pl-2">Go to an example directory</div>
+                    <pre class="p-2 rounded bg-gray-800 text-white">
+cd consolidated-learning/live-code/${example-name}</pre>
+                </div>
+
+                <div class="flex flex-col">
+                    <div class="font-mono pl-2">Install dependencies</div>
+                    <pre class="p-2 rounded bg-gray-800 text-white">
+npm install</pre>
+                </div>
+
+                <div class="flex flex-col">
+                    <div class="font-mono pl-2">Start a development server</div>
+                    <pre class="p-2 rounded bg-gray-800 text-white">
+npm run dev</pre>
+                </div>
+
+                <div class="flex flex-row items-center space-x-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                    </svg>
+                    <div class="text-xl">
+                        Open an editor to <span class="text-gray-900 font-bold">edit main.js</span>
+                    </div>
+                </div>
 
                 </div>
             </div>
@@ -134,7 +233,7 @@
                 </div>
             </div>
 
-            <div class="step bg-gray-900 border-2" data-x="1400" data-y="-1400" data-z="0">
+            <div class="step bg-blue-500 border-2" data-x="1400" data-y="-1400" data-z="0">
                 <div class="flex flex-col h-full w-full relative justify-center items-center text-white text-4xl">Let the live coding commence...</div>
             </div>
 
